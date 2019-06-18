@@ -19,6 +19,7 @@ knex.from('famous_people').select("*").where('first_name', '=', name)
       console.log(`- ${person.id}: ${person.first_name} ${person.last_name}, born '${person.birthdate.toLocaleDateString()}'`);
     }
   })
+  .catch((err) => { console.log(err); throw err })
   .finally(() => {
     knex.destroy();
   });
